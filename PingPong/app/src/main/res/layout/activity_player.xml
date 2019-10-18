@@ -50,7 +50,7 @@
             app:layout_constraintTop_toBottomOf="@+id/editText"
             app:layout_constraintStart_toStartOf="@+id/editText" app:layout_constraintEnd_toEndOf="@+id/editText"
             app:layout_constraintHorizontal_bias="0.0" android:hint="Jogador 2"
-            android:background="@color/background_home" style="@style/home_input"/>
+            android:background="@color/background_away" style="@style/home_input"/>
     <Button
             android:text="Começar partida"
             android:layout_width="261dp"
