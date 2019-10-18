@@ -17,7 +17,8 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun nextScreen() {
-        val nextScreen = Intent(this, MainActivity::class.java )
+        // Função para alterar comportamento do Splash
+        val nextScreen = Intent(this, PlayerActivity::class.java )
         startActivity(nextScreen)
         finish()
     }

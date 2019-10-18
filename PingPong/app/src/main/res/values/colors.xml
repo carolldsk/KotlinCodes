@@ -3,4 +3,9 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="background_home">#949E29B6</color>
+    <color name="background_away">#DA9E29B6</color>
+
+    <color name="input_text_color">#FFF</color>
+    <color name="input_hint_text_color">#EEE</color>
 </resources>

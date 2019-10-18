@@ -13,7 +13,7 @@
             android:layout_height="387dp" app:srcCompat="@drawable/ic_logo_ping_pong"
             android:id="@+id/imageView"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginTop="40dp" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginToptheme="40dp" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/imageView2" app:layout_constraintVertical_bias="1.0"
             app:layout_constraintHorizontal_bias="0.384"/>
