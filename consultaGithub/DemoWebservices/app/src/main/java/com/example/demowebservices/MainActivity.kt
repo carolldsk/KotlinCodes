@@ -10,6 +10,10 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import com.facebook.stetho.okhttp3.StethoInterceptor
+import com.squareup.picasso.Picasso
+import okhttp3.OkHttpClient
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,9 +29,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun pesquisar(){
+        // Instanciando Stetho
+        val OkHttpClient = OkHttpClient.Builder()
+            .addNetworkInterceptor(StethoInterceptor())
+            .build()
+        // Instanciando Retrofit e chamando Stetho para dentro dele (EM CLIENTE)
         val retrofit = Retrofit.Builder()
             .baseUrl("https://api.github.com/")
             .addConverterFactory(GsonConverterFactory.create())
+            .client(OkHttpClient)
             .build()
 
         val gitHubService = retrofit.create(GitHubService::class.java)
@@ -41,6 +51,12 @@ class MainActivity : AppCompatActivity() {
                 if(response.isSuccessful) {
                     val usuario = response.body()
                     tvUsuario.text = usuario?.nome
+                    // Picasso serve para pegar imagens remotas e baixar sozinha para nosso repositorio e atualizar quando necessario
+                    Picasso.get()
+                        .load(usuario?.imagem)
+                        .error(R.mipmap.ic_launcher)
+                        .placeholder(R.mipmap.ic_launcher)
+                        .into(ivUsuario)
                 }else{
                     Toast.makeText(this@MainActivity,
                         "Deu ruim!",
