@@ -15,12 +15,13 @@ import kotlinx.android.synthetic.main.activity_splash.*
 class SplashActivity : AppCompatActivity() {
 
     private val TEMPO_AGUARDO_SPLASHSCREEN = 3500L
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        val preferences = getSharedPreferences("user_preferences",
-            Context.MODE_PRIVATE)
+        val preferences = getSharedPreferences(
+            "user_preferences",
+            Context.MODE_PRIVATE
+        )
         val isFirstOpen = preferences.getBoolean("open_first", true)
         if (isFirstOpen) {
             markAppAlreadyOpen(preferences)
@@ -29,22 +30,6 @@ class SplashActivity : AppCompatActivity() {
             showLogin()
         }
     }
-
-    private fun carregar() {
-        //Carrega a animacao
-        val anim = AnimationUtils.loadAnimation(this, R.anim.animacao_splash)
-        anim.reset()
-        ivLogo.clearAnimation()
-        //Roda a animacao
-        ivLogo.startAnimation(anim)
-        //Chama a próxima tela após 3,5 segundos definido na SPLASH_DISPLAY_LENGTH
-        Handler().postDelayed({
-            val proximaTela = Intent(this@SplashActivity, LoginActivity::class.java)
-            startActivity(proximaTela)
-            finish()
-        }, TEMPO_AGUARDO_SPLASHSCREEN)
-    }
-
 
     private fun markAppAlreadyOpen(preferences: SharedPreferences) {
         val editor = preferences.edit()
@@ -56,7 +41,6 @@ class SplashActivity : AppCompatActivity() {
         startActivity(nextScreen)
         finish()
     }
-
 
     private fun showSplash() {
         val anim = AnimationUtils.loadAnimation(this, R.anim.animacao_splash)
