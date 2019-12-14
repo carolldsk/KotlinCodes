@@ -1,0 +1,13 @@
+package br.com.carol.calculadoraflex.ui.login
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import br.com.carol.calculadoraflex.R
+
+class LoginActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
+    }
+}
